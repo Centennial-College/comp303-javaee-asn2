@@ -22,6 +22,10 @@ public class DatabaseSimulator {
 		populateProductList();
 	}
 
+	public ArrayList<Product> getProductList() {
+		return this.productList;
+	}
+
 	private void populateProductList() {
 		for (int i = 0; i < products.length; i++) {
 			productList.add(products[i]);
