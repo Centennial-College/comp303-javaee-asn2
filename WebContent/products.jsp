@@ -2,7 +2,7 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
         <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
-            <div class="container" style="margin-top: 65px">
+            <div class="container-fluid" style="margin-top: 65px">
                 <div class="row">
                     <h1 class="">Headphones List</h1>
                 </div>
@@ -17,7 +17,8 @@
                                 <th scope="col"></th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Rating</th>
-                                <!-- <th scope="col">Quantity</th> -->
+                                <th scope="col">Quantity</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -27,7 +28,7 @@
                                     <input type="hidden" id="itemSku" name="itemSku" value="${product.sku}" />
                                     <tr>
                                         <th scope="row">
-                                            <img class="w-15" src="./img/${product.sku}.png" alt=""> </a>
+                                            <img class="w-5" src="./img/${product.sku}.png" alt=""> </a>
                                         </th>
                                         <th scope="row">
                                             <b>${product.productName}</b>
@@ -46,6 +47,12 @@
                                         <td>
                                             <fmt:formatNumber value="${product.unitPrice}" type="currency" /> </td>
                                         <td> ${product.rating} </td>
+                                        <td>
+                                            <input type="number" min="1" id="qnty" name="qnty" size="3" />
+                                        </td>
+                                        <td>
+                                            <input type="submit" class="btn btn-primary pull-right" value="Add To Cart" style="font-size: 10px;" />
+                                        </td>
                                     </tr>
                                 </form>
                             </c:forEach>
