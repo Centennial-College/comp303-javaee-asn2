@@ -28,7 +28,7 @@
                                     <input type="hidden" id="itemSku" name="itemSku" value="${product.sku}" />
                                     <tr>
                                         <th scope="row">
-                                            <img class="w-5" src="./img/${product.sku}.png" alt=""> </a>
+                                            <img src="./img/${product.sku}.png" style="height: 15vh;"> </a>
                                         </th>
                                         <th scope="row">
                                             <b>${product.productName}</b>

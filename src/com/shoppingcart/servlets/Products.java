@@ -35,9 +35,12 @@ public class Products extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		DatabaseSimulator db = new DatabaseSimulator();
-
 		HttpSession session = request.getSession();
-		session.setAttribute("products", db.getProductList());
+
+		// only load the product list from the DatabaseSimulator into session scope if it has not already been loaded
+		if (session.getAttribute("products") == null) {
+			session.setAttribute("products", db.getProductList());
+		}
 		request.getRequestDispatcher("products.jsp").forward(request, response);
 	}
 
