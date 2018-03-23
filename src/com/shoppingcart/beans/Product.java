@@ -24,6 +24,7 @@ public class Product implements Serializable {
 	 * Price, Rating
 	 */
 	private String sku;
+	private String productName;
 	private String description;
 	private int stockQuantity;
 	private double unitPrice;
@@ -40,6 +41,14 @@ public class Product implements Serializable {
 
 	public void setSku(String sku) {
 		this.sku = sku;
+	}
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
 	public String getDescription() {
