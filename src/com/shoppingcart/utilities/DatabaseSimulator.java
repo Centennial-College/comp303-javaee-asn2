@@ -50,7 +50,7 @@ public class DatabaseSimulator {
 				+ "- NFC for simple pairing with compatible devices and frequency response is 18 to 22,000 Hz\r\n"
 				+ "- Up to 25 hour battery life and is supplied with connecting cable for battery-free listening\r\n"
 				+ "- 2 year warranty when purchased from an authorized Sennheiser dealer");
-		products[0].setStockQuantity(15);
+		products[0].setStockQuantity(0);
 		products[0].setUnitPrice(129.95);
 		products[0].setRating(4.3);
 
@@ -81,7 +81,7 @@ public class DatabaseSimulator {
 				+ "- Lightweight, comfortable around-ear fit you can wear all day long\r\n"
 				+ "- Control your music and calls on Samsung and android devices with inline mic/remote\r\n"
 				+ "- Distinctive design in black or white");
-		products[2].setStockQuantity(13);
+		products[2].setStockQuantity(1);
 		products[2].setUnitPrice(221.66);
 		products[2].setRating(4.6);
 

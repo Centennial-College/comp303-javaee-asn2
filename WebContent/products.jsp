@@ -14,9 +14,10 @@
                                 <th scope="col"></th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Description</th>
-                                <th scope="col">Stock</th>
+                                <th scope="col"></th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Rating</th>
+                                <!-- <th scope="col">Quantity</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -32,7 +33,16 @@
                                             <b>${product.productName}</b>
                                         </th>
                                         <td> ${product.description} </td>
-                                        <td> ${product.stockQuantity} </td>
+                                        <td>
+                                            <c:choose>
+                                                <c:when test="${product.stockQuantity > 0}">
+                                                    <span class="text-success">In Stock.</span>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <span class="text-danger">Out of Stock.</span>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </td>
                                         <td>
                                             <fmt:formatNumber value="${product.unitPrice}" type="currency" /> </td>
                                         <td> ${product.rating} </td>
