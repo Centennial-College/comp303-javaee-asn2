@@ -19,6 +19,7 @@ public class DatabaseSimulator {
 
 	public DatabaseSimulator() {
 		productList = new ArrayList<>();
+		generateProducts();
 		populateProductList();
 	}
 
@@ -72,7 +73,7 @@ public class DatabaseSimulator {
 		products[2] = new Product();
 		products[2].setSku("BOSE-QC25-ANC");
 		products[2].setProductName(
-				"Bose QuietComfort 25 Acoustic Noise Cancelling Headphones — Samsung and Android Devices (Black)");
+				"Bose QuietComfort 25 Acoustic Noise Cancelling Headphones Samsung and Android Devices (Black)");
 		products[2].setDescription("Features:\n"
 				+ "- Do not place any stress or pull on the input cable. Doing so may shorten the life of your headset. Be sure the earcup ports are clear of lint, dust and debris. Do not allow moisture to get inside the earcups.\r\n"
 				+ "- Significant noise reduction for travel, work and anywhere in between\r\n"
