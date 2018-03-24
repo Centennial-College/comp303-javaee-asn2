@@ -23,20 +23,20 @@
                         </thead>
                         <tbody>
 
-                            <c:forEach items="${sessionScope.products}" var="product">
+                            <c:forEach items="${sessionScope.products}" var="product" varStatus="counter">
                                 <form action="Products" method="post">
-                                    <input type="hidden" id="itemSku" name="itemSku" value="${product.sku}" />
+                                    <input type="hidden" id="itemSku" name="itemSku" value="${product.key}" />
                                     <tr>
                                         <th scope="row">
-                                            <img src="./img/${product.sku}.png" style="height: 15vh;"> </a>
+                                            <img src="./img/${product.key}.png" style="height: 15vh;">
                                         </th>
                                         <th scope="row">
-                                            <b>${product.productName}</b>
+                                            <b>${product.value.productName}</b>
                                         </th>
-                                        <td> ${product.description} </td>
+                                        <td> ${product.value.description} </td>
                                         <td>
                                             <c:choose>
-                                                <c:when test="${product.stockQuantity > 0}">
+                                                <c:when test="${product.value.stockQuantity > 0}">
                                                     <span class="text-success">In Stock.</span>
                                                 </c:when>
                                                 <c:otherwise>
@@ -45,13 +45,20 @@
                                             </c:choose>
                                         </td>
                                         <td>
-                                            <fmt:formatNumber value="${product.unitPrice}" type="currency" /> </td>
-                                        <td> ${product.rating} </td>
+                                            <fmt:formatNumber value="${product.value.unitPrice}" type="currency" /> </td>
+                                        <td> ${product.value.rating} </td>
                                         <td>
-                                            <input type="number" min="1" id="qnty" name="qnty" size="3" />
+                                            <input type="number" min="1" name="qnty" id="qnty${counter.count}" size="3" onkeyup="
+                                            if($(this).val().length == 0){
+                                                $('#addToCart${counter.count}').prop('disabled',true);
+                                            } else {
+                                                $('#addToCart${counter.count}').prop('disabled',false);
+                                            }
+                                            " />
                                         </td>
                                         <td>
-                                            <input type="submit" class="btn btn-primary pull-right" value="Add To Cart" style="font-size: 10px;" />
+                                            <input type="submit" class="btn btn-primary pull-right" value="Add To Cart" style="font-size: 10px;" id="addToCart${counter.count}"
+                                                disabled />
                                         </td>
                                     </tr>
                                 </form>
