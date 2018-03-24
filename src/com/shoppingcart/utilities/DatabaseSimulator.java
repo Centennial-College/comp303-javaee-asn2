@@ -14,8 +14,10 @@ import com.shoppingcart.beans.Product;
  *
  */
 public class DatabaseSimulator {
-	// 2018.03.23 - 12:17:22 - changed ArrayList productList to HashMap b/c we do lots of querying on SKU
-	// arraylist would need to iterate through whole collection to search. hashmap can do lookup by sku (key) to grab product (value)
+	// 2018.03.23 - 12:17:22 - changed ArrayList productList to HashMap b/c we do
+	// lots of querying on SKU
+	// arraylist would need to iterate through whole collection to search. hashmap
+	// can do lookup by sku (key) to grab product (value)
 	private HashMap<String, Product> productsMap;
 	private Product[] productsArray;
 
@@ -55,7 +57,7 @@ public class DatabaseSimulator {
 				+ "- NFC for simple pairing with compatible devices and frequency response is 18 to 22,000 Hz\r\n"
 				+ "- Up to 25 hour battery life and is supplied with connecting cable for battery-free listening\r\n"
 				+ "- 2 year warranty when purchased from an authorized Sennheiser dealer");
-		productsArray[0].setStockQuantity(0);
+		productsArray[0].setStockQuantity(6);
 		productsArray[0].setUnitPrice(129.95);
 		productsArray[0].setRating(4.3);
 

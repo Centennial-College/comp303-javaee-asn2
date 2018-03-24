@@ -63,8 +63,12 @@ public class Products extends HttpServlet {
 
 		// append the item which was clicked on by the user to the shoppingcart
 		Product productToBeAdded = (Product) availableProducts.get(request.getParameter("itemSku"));
+		int quantityToPurchase = Integer.parseInt(request.getParameter("qnty"));
 		shoppingcart.add(productToBeAdded);
-		shoppingcartqnty.add(request.getParameter("qnty"));
+		shoppingcartqnty.add(quantityToPurchase);
+
+		// update the session productlist
+		productToBeAdded.setStockQuantity(productToBeAdded.getStockQuantity() - quantityToPurchase);
 
 		// update the user's (session's) shopping cart with the new cart
 		session.setAttribute("shoppingcart", shoppingcart);

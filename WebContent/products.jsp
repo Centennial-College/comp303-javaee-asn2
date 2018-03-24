@@ -37,7 +37,7 @@
                                         <td>
                                             <c:choose>
                                                 <c:when test="${product.value.stockQuantity > 0}">
-                                                    <span class="text-success">In Stock.</span>
+                                                    <span class="text-success">In Stock (${product.value.stockQuantity}).</span>
                                                 </c:when>
                                                 <c:otherwise>
                                                     <span class="text-danger">Out of Stock.</span>
@@ -48,8 +48,7 @@
                                             <fmt:formatNumber value="${product.value.unitPrice}" type="currency" /> </td>
                                         <td> ${product.value.rating} </td>
                                         <td>
-                                            <input type="number" min="1" name="qnty" id="qnty${counter.count}" style="width: 3em;" onkeyup="if($(this).val().length == 0){$('#addToCart${counter.count}').prop('disabled',true);} else {$('#addToCart${counter.count}').prop('disabled',false);}"
-                                                onchange="if($(this).val().length == 0){$('#addToCart${counter.count}').prop('disabled',true);} else {$('#addToCart${counter.count}').prop('disabled',false);}"
+                                            <input type="number" min="1" name="qnty" id="qnty${counter.count}" style="width: 3em;" oninput="if($(this).val().length == 0){$('#addToCart${counter.count}').prop('disabled',true);} else {$('#addToCart${counter.count}').prop('disabled',false);if($(this).val()>${product.value.stockQuantity}){alert('There are only ${ product.value.stockQuantity} headphones in stock!\nYou cannot purchase '+ $(this).val()+'!');$('#addToCart${counter.count}').prop('disabled',true);}}"
                                             />
                                         </td>
                                         <td>
