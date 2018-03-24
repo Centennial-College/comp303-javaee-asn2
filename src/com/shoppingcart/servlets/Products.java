@@ -54,16 +54,25 @@ public class Products extends HttpServlet {
 			// this is because we simply iterate through cart to display items and sum the
 			// total price for display; no querying the collection
 			session.setAttribute("shoppingcart", new ArrayList<Product>());
+			session.setAttribute("shoppingcartqnty", new ArrayList<Integer>());
 		}
 
 		ArrayList shoppingcart = (ArrayList<Product>) session.getAttribute("shoppingcart");
+		ArrayList shoppingcartqnty = (ArrayList<Integer>) session.getAttribute("shoppingcartqnty");
 		HashMap availableProducts = (HashMap<String, Product>) session.getAttribute("products");
 
 		// append the item which was clicked on by the user to the shoppingcart
-		shoppingcart.add(availableProducts.get(request.getParameter("itemSku")));
+		Product productToBeAdded = (Product) availableProducts.get(request.getParameter("itemSku"));
+		shoppingcart.add(productToBeAdded);
+		shoppingcartqnty.add(request.getParameter("qnty"));
 
 		// update the user's (session's) shopping cart with the new cart
 		session.setAttribute("shoppingcart", shoppingcart);
+
+		// NOTE: we need to use session var here instead of request scope because we are
+		// redirecting the request...if we were forwarding, can pass the request and
+		// response but alas...alas is not the case
+		session.setAttribute("purchaseQnty", shoppingcartqnty);
 
 		// redirect to ShoppingCart servlet, webbrowser will fire a new HTTP GET request
 		response.sendRedirect("ShoppingCart");
