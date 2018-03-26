@@ -2,7 +2,7 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
         <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
-            <div class="container wrapper" style="margin-top: 65px">
+            <div class="container" style="margin-top: 65px">
 
                 <c:choose>
                     <c:when test="${requestScope.errorMessage != null}">
