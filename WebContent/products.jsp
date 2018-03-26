@@ -2,9 +2,9 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
         <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
-            <div class="container-fluid wrapper" style="margin-top: 65px">
+            <div class="container-fluid" style="margin-top: 65px">
                 <div class="row">
-                    <h1 class="display-4" style="margin-left: 25px;">Headphones List</h1>
+                    <h1 class="">Headphones List</h1>
                 </div>
 
                 <div class="row">
@@ -46,7 +46,7 @@
                                         </td>
                                         <td>
                                             <fmt:formatNumber value="${product.value.unitPrice}" type="currency" /> </td>
-                                        <td><span class="stars">${product.value.rating}</span></td>
+                                        <td> ${product.value.rating} </td>
                                         <td>
                                             <input type="number" min="1" name="qnty" id="qnty${counter.count}" style="width: 3em;" oninput="if($(this).val().length == 0){$('#addToCart${counter.count}').prop('disabled',true);} else {$('#addToCart${counter.count}').prop('disabled',false);if($(this).val()>${product.value.stockQuantity}){alert('There are only ${ product.value.stockQuantity} headphones in stock!\nYou cannot purchase '+ $(this).val()+'!');$('#addToCart${counter.count}').prop('disabled',true);}}"
                                             />
